@@ -10,5 +10,4 @@
 
 📜 Для запуска скрипта выполните команду:
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Debian/main/debian-setup.sh)
-
+bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
