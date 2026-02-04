@@ -31,7 +31,7 @@ sed -i 's/^Port 22/Port 21234/' /etc/ssh/sshd_config
 echo "   ✅ Порт SSH изменен на 21234"
 
 # 4.2. Генерируем SSH ключ ed25519 (МОИ имена файлов)
-ssh-keygen -t ed25519 -f ~/.ssh/server_key
+ssh-keygen -t ed25519 -f ~/.ssh/server_key -a 100 -C "server $(hostname)"
 echo "   ✅ SSH ключ сгенерирован: ~/.ssh/server_key"
 
 # 4.3. Создаем директорию .ssh и authorized_keys
