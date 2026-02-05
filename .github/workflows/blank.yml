@@ -21,4 +21,4 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
+          sudo bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
