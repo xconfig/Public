@@ -1,0 +1,24 @@
+# .github/workflows/test-debian-setup.yml
+name: Test debian-setup.sh
+
+on:
+  workflow_dispatch:  # ручной запуск из Actions таба
+
+jobs:
+  run-debian-setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show system info
+        run: |
+          lsb_release -a || cat /etc/os-release
+          uname -a
+
+      - name: Run debian-setup.sh from GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
