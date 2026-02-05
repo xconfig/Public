@@ -18,7 +18,8 @@ jobs:
           uname -a
 
       - name: Run debian-setup.sh from GitHub
-        shell: bash
         run: |
           set -euo pipefail
-          sudo bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
+          bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
+          docker run --rm -it 
+            -v $(pwd):/workspace debian:12-bookworm bash <(curl -Ls https://raw.githubusercontent.com/xconfig/Public/main/debian-setup.sh)
