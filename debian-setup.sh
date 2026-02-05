@@ -75,35 +75,36 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo ""
     echo "🚀 Запускаем установку Docker..."
 
-# 5. Установка Docker + Docker Compose (официальный репозиторий)
-echo "🐳 Установка Docker и Docker Compose..."
+    # 5. Установка Docker + Docker Compose (официальный репозиторий)
+    echo "🐳 Установка Docker и Docker Compose..."
 
-# 5.1. Установка зависимостей
-apt install -y ca-certificates curl gnupg lsb-release
-echo "   ✅ Зависимости установлены"
+    # 5.1. Установка зависимостей
+    apt install -y ca-certificates curl gnupg lsb-release
+    echo "   ✅ Зависимости установлены"
 
-# 5.2. Добавляем GPG ключ Docker
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "   ✅ GPG ключ Docker добавлен"
+    # 5.2. Добавляем GPG ключ Docker ✅ ИСПРАВЛЕНО
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "   ✅ GPG ключ Docker добавлен"
 
-# 5.3. Добавляем репозиторий Docker
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-echo "   ✅ Репозиторий Docker добавлен"
+    # 5.3. Добавляем репозиторий Docker ✅ ИСПРАВЛЕНО
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+    echo "   ✅ Репозиторий Docker добавлен"
 
-# 5.4. Обновляем пакеты и устанавливаем Docker
-apt update
-apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-echo "   ✅ Docker установлен"
+    # 5.4. Обновляем пакеты и устанавливаем Docker
+    apt update
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    echo "   ✅ Docker установлен"
 
-# 5.5. Запускаем и включаем Docker в автозагрузку
-systemctl start docker
-systemctl enable docker
-echo "   ✅ Docker запущен и добавлен в автозагрузку"
+    # 5.5. Запускаем и включаем Docker в автозагрузку
+    systemctl start docker
+    systemctl enable docker
+    echo "   ✅ Docker запущен и добавлен в автозагрузку"
 
-# 5.6. Проверяем установку Docker
-docker --version
-docker compose version
-echo "✅ Docker и Docker Compose установлены!"
+    # 5.6. Проверяем установку Docker
+    docker --version
+    docker compose version
+    echo "✅ Docker и Docker Compose установлены!"
+fi  # ← ✅ ЗАКРЫВАЕМ Docker if
 
 # 6. Финальное предложение 3X-UI (с правильной логикой)
 echo ""
