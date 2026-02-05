@@ -65,6 +65,16 @@ systemctl restart ssh
 echo "✅ SSH настроен: порт 21234, только ключи"
 echo "⚠️  Подключайтесь: ssh -p 21234 -i server_key root@IP"
 
+# 6. Предложение установить Docker
+echo ""
+echo "🌐 === УСТАНОВИТЬ Docker? ==="
+read -p "Установить Docker? (y/N): " -n 1 -r
+echo
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo ""
+    echo "🚀 Запускаем установку Docker..."
+
 # 5. Установка Docker + Docker Compose (официальный репозиторий)
 echo "🐳 Установка Docker и Docker Compose..."
 
