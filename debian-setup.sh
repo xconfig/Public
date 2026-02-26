@@ -23,23 +23,23 @@ apt install btop -y
 echo "✅ btop установлен"
 
 # 4. Установка Настраиваем время и часовой пояс
-echo "   🕒 Настраиваем время и часовой пояс (MSK)..."
+#echo "   🕒 Настраиваем время и часовой пояс (MSK)..."
 # Часовой пояс Москва
-timedatectl set-timezone Europe/Moscow
+#timedatectl set-timezone Europe/Moscow
 # Включаем NTP синхронизацию
-timedatectl set-ntp true
-systemctl restart systemd-timesyncd 2>/dev/null || true
+#timedatectl set-ntp true
+#systemctl restart systemd-timesyncd 2>/dev/null || true
 # Русская локаль ТОЛЬКО для времени (24h формат), остальное английский
-sed -i 's/^# *ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
-sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen ru_RU.UTF-8 en_US.UTF-8
+#sed -i 's/^# *ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
+#sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+#locale-gen ru_RU.UTF-8 en_US.UTF-8
 # КЛЮЧЕВОЕ: только LC_TIME на русский (24h), остальное en_US
-update-locale LANG=en_US.UTF-8 \
-              LC_TIME=ru_RU.UTF-8 \
-              LC_CTYPE=en_US.UTF-8 \
-              LC_COLLATE=en_US.UTF-8 \
-              LC_MESSAGES=en_US.UTF-8
-echo "   ✅ Установлен 24-часовой формат"
+#update-locale LANG=en_US.UTF-8 \
+#              LC_TIME=ru_RU.UTF-8 \
+#              LC_CTYPE=en_US.UTF-8 \
+#              LC_COLLATE=en_US.UTF-8 \
+#              LC_MESSAGES=en_US.UTF-8
+#echo "   ✅ Установлен 24-часовой формат"
 
 # 5. Настройка SSH (сложная последовательность)
 echo "🔐 Настройка SSH: смена порта + ключи..."
